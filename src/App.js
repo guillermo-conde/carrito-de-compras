@@ -10,16 +10,30 @@ class App extends Component{
       {nombre: 'Tomate', precio: 15.00, img: '/productos/tomate.jpg'},
       {nombre: 'Arbejas', precio: 25.00, img: '/productos/arbejas.jpg'},
       {nombre: 'Lechuga', precio: 7.00, img: '/productos/lechuga.jpg'}
+    ],
+    carrito: [
+      // {nombre: 'Lechuga', precio: 7.00, img: '/productos/lechuga.jpg', cantidad: },
     ]
   }
+
+  agregarAlCarrito = (producto) => {
+    return this.setState({
+      carrito: this.state.carrito.concat({
+        ...producto, 
+        cantidad: 1
+      })
+    });
+  }
+
   render(){
+    console.log(this.state.carrito);
     return (
       <div>
         <Navegacion/>
         <Layout>
           <Titulo></Titulo>
           <Productos
-          agregarAlCarrito = {() => console.log('Agregando al carrito')}
+          agregarAlCarrito = {this.agregarAlCarrito}
           productos = {this.state.productos}  
           ></Productos>
         </Layout>
