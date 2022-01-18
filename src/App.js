@@ -11,12 +11,18 @@ class App extends Component{
       {nombre: 'Arbejas', precio: 25.00, img: '/productos/arbejas.jpg'},
       {nombre: 'Lechuga', precio: 7.00, img: '/productos/lechuga.jpg'}
     ],
-    carrito: [
-      // {nombre: 'Lechuga', precio: 7.00, img: '/productos/lechuga.jpg', cantidad: },
-    ]
+    carrito: []
   }
 
   agregarAlCarrito = (producto) => {
+    const { carrito } = this.state
+
+    if (carrito.find(x => x.nombre === producto.nombre)) {
+      const newCarrito = carrito.map(x => x.nombre === producto.nombre ?
+      ({ ...x, cantidad: x.cantidad + 1 })
+      : x)
+      return this.setState({carrito: newCarrito})
+    } 
     return this.setState({
       carrito: this.state.carrito.concat({
         ...producto, 
