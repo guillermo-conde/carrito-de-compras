@@ -17,10 +17,11 @@ const styles = {
 
 class Navegacion extends Component{
     render(){
+        const { carrito } = this.props;
         return (
             <nav style={styles.navbar}>
                 <Logo/>
-                <Carro/>
+                <Carro carrito = { carrito }/>
             </nav>
         );
     }

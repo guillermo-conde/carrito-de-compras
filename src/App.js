@@ -32,10 +32,9 @@ class App extends Component{
   }
 
   render(){
-    console.log(this.state.carrito);
     return (
       <div>
-        <Navegacion/>
+        <Navegacion carrito={this.state.carrito}/>
         <Layout>
           <Titulo></Titulo>
           <Productos
