@@ -11,7 +11,8 @@ class App extends Component{
       {nombre: 'Arbejas', precio: 25.00, img: '/productos/arbejas.jpg'},
       {nombre: 'Lechuga', precio: 7.00, img: '/productos/lechuga.jpg'}
     ],
-    carrito: []
+    carrito: [],
+    visibilidadCarrito: false
   }
 
   agregarAlCarrito = (producto) => {
@@ -31,10 +32,18 @@ class App extends Component{
     });
   }
 
+  mostrarCarrito = () => {
+    if (!this.state.carrito.length) {
+      return
+    }
+    this.setState({visibilidadCarrito: !this.state.visibilidadCarrito})
+  }
+
   render(){
+    const {visibilidadCarrito} = this.state;
     return (
       <div>
-        <Navegacion carrito={this.state.carrito}/>
+        <Navegacion carrito={this.state.carrito} visibilidadCarrito={visibilidadCarrito} mostrarCarrito={this.mostrarCarrito}/>
         <Layout>
           <Titulo></Titulo>
           <Productos

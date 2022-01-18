@@ -17,11 +17,12 @@ const styles = {
 
 class Navegacion extends Component{
     render(){
-        const { carrito } = this.props;
+        const { carrito, visibilidadCarrito, mostrarCarrito } = this.props;
         return (
             <nav style={styles.navbar}>
                 <Logo/>
-                <Carro carrito = { carrito }/>
+                <Carro carrito = { carrito } visibilidadCarrito={ visibilidadCarrito } 
+                mostrarCarrito= { mostrarCarrito }/>
             </nav>
         );
     }

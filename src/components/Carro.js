@@ -20,7 +20,7 @@ const styles = {
 
 class Carro extends Component{
     render(){
-        const { carrito } = this.props;
+        const { carrito, visibilidadCarrito, mostrarCarrito } = this.props;
         const total = carrito.reduce((acc, el) => acc + el.cantidad, 0);
 
         return(
@@ -31,10 +31,11 @@ class Carro extends Component{
                         : null
                     }
                 </span>
-                <button style={styles.carro}>
+                <button onClick={ mostrarCarrito } style={styles.carro}>
                     Carro
                 </button>
-                <DetallesCarro carrito={carrito}/>
+                {visibilidadCarrito ? <DetallesCarro carrito={carrito}/> : null}
+                
             </div>
         );
     }
