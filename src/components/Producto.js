@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Button from "./Button";
 
 const styles = {
     producto: {
@@ -6,7 +7,7 @@ const styles = {
         boxShadow: '0 5px 5px rgb(0,0,0,0.1)',
         width: '30%',
         padding: '10px 15px',
-        borderRadious: '5px'
+        borderRadius: '5px',
     },
     img: {
         width: '100%'
@@ -15,12 +16,17 @@ const styles = {
 
 class Producto extends Component{
     render(){
-        const { producto } = this.props;
+        const { producto, agregarAlCarrito } = this.props;
         return(
             <div style={styles.producto}>
                 <img alt={producto.name} src={producto.img} style={styles.img}/>
                 <h3>{producto.nombre}</h3>
                 <p>{producto.precio}</p>
+                <Button
+                    onClick={()=> agregarAlCarrito(producto)}
+                >
+                    Agregar al carrito de compras
+                </Button>
             </div>
         )
     };
