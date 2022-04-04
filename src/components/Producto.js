@@ -8,6 +8,7 @@ const styles = {
         width: '30%',
         padding: '10px 15px',
         borderRadius: '5px',
+        marginTop: '10px' ,
     },
     img: {
         width: '100%'
